@@ -1,0 +1,27 @@
+{
+  "name": "the_ink_well",
+  "version": "1.0.0",
+  "description": "Original, basic Vue.js experiment",
+  "private": true,
+  "scripts": {
+    "test": "webpack --watch --progress",
+    "build": "webpack"
+  },
+  "keywords": [],
+  "author": "MaakuW",
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^4.17.15"
+  },
+  "devDependencies": {
+    "css-loader": "^3.4.2",
+    "fibers": "^4.0.2",
+    "mini-css-extract-plugin": "^0.9.0",
+    "node-sass": "^4.13.1",
+    "sass": "^1.25.0",
+    "sass-loader": "^8.0.2",
+    "style-loader": "^1.1.3",
+    "webpack": "^4.41.6",
+    "webpack-cli": "^3.3.11"
+  }
+}

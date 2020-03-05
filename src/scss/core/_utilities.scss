@@ -1,0 +1,695 @@
+/**
+ * Utilites & classes
+ */
+
+/* Positioning */
+body {
+  .absolute {
+    position: absolute;
+  }
+
+  .relative {
+    position: relative;
+  }
+  
+  .block {
+    &.button {
+      display: block;
+    }
+    display: block;
+  }
+
+  .iblock {
+    &.button {
+      display: inline-block;
+    }
+    display: inline-block;
+  }
+
+  .flex {
+    &.button {
+      display: flex;
+    }
+    display: flex;
+  }
+
+  .iflex {
+    &.button {
+      display: inline-flex;
+    }
+    display: inline-flex;
+  }
+}
+
+html[lang],
+body[class] {
+  *.hide {
+    display: none;
+    visibility: hidden;
+  }
+
+  *.invisible {
+    visibility: hidden;
+  }
+
+  *.hidden {
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    border-top: 0;
+    border-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    transition: all 250ms ease-in-out;
+  }
+
+  *.show {
+    opacity: 1;
+    height: auto;
+    transition: all 500ms ease-in-out;
+  }
+}
+
+//Used on to add "air" to a section of the body, an article or main
+%section-padding {
+  padding-top: $padding-xsmall;
+  padding-bottom: $padding-xsmall;
+
+  @include screen-md-only {
+    padding-top: $padding-small;
+    padding-bottom: $padding-small;
+  }
+
+  @include screen-lg-up {
+    padding-top: $padding-medium;
+    padding-bottom: $padding-medium;
+  }
+}
+
+%section-border {
+  position: relative;
+
+  &:before,
+  &:after {
+    position: absolute;
+    left: 0;
+    right: 0;
+    content: '';
+    width: 100%;
+    height: rem-calc(2);
+    background-color: $ebony;
+  }
+
+  &:before {
+    top: -1 * $padding-xsmall/2;
+  }
+
+  &:after {
+    bottom: -1 * $padding-xsmall/2;
+  }
+
+  @include screen-md-only {
+    &:before {
+      top: -1 * $padding-small/2;
+    }
+
+    &:after {
+      bottom: -1 * $padding-small/2;
+    }
+  }
+
+  @include screen-lg-up {
+    &:before {
+      top: -1 * $padding-medium/2;
+    }
+
+    &:after {
+      bottom: -1 * $padding-medium/2;
+    }
+  }
+}
+
+%section-shadow {
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: #{rem-calc(0)} #{rem-calc(6)} #{rem-calc(3)} rgba($black, 0.3);
+  }
+}
+
+%section-shadow--right {
+  margin-right: rem-calc(6);
+  margin-left: 0;
+  
+  &:before {
+    box-shadow: #{rem-calc(-6)} #{rem-calc(6)} #{rem-calc(3)} rgba($black, 0.3);
+  }
+}
+
+%section-shadow--left {
+  margin-right: 0;
+  margin-left: rem-calc(6);
+
+  &:before {
+    box-shadow: #{rem-calc(6)} #{rem-calc(6)} #{rem-calc(3)} rgba($black, 0.3);
+  }
+}
+
+%global-shadow {
+  box-shadow: 0 0 #{rem-calc(30)} rgba($black,0.3);
+}
+
+/* Anchors & Buttons */
+%icon-link {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: rem-calc(16);
+  font-weight: $text-book;
+  line-height: line-calc(24,16);
+
+  svg {
+    width: rem-calc(51);
+    height: rem-calc(51);
+    fill: white;
+    margin-left: rem-calc(38);
+  }
+}
+
+.icon-link {
+  @extend %icon-link;
+}
+
+/* Fonts */
+.large,
+.text-large {
+  @extend %large;
+}
+
+.text-small {
+  @extend %small;
+}
+
+.text-black,
+.h1.text-black,
+.h2.text-black,
+.h3.text-black,
+.h4.text-black,
+.h5.text-black,
+.h6.text-black {
+    font-weight: $text-black;
+}
+
+.text-med,
+.h1.text-med,
+.h2.text-med,
+.h3.text-med,
+.h4.text-med,
+.h5.text-med,
+.h6.text-med {
+  font-weight: $text-med;
+}
+
+.text-bold,
+.h1.text-bold,
+.h2.text-bold,
+.h3.text-bold,
+.h4.text-bold,
+.h5.text-bold,
+.h6.text-bold {
+  font-weight: $text-bold;
+}
+
+.text-book,
+.h1.text-book,
+.h2.text-book,
+.h3.text-book,
+.h4.text-book,
+.h5.text-book,
+.h6.text-book {
+  font-weight: $text-book;
+}
+
+/* Lists */
+.no-bullet {
+  list-style: none;
+  padding-left: initial;
+}
+
+.two-column {
+  display: flex;
+  flex-wrap: wrap;
+
+  li {
+    width: 50%;
+    flex: 0 0.5 auto;
+  }
+
+}
+
+.bullet {
+  list-style: disc;
+}
+
+/* the Grid */
+.row--full {
+  margin: 0;
+}
+
+.col--full {
+  padding: 0;
+}
+
+%col {
+  position: relative;
+  min-height: 1px;
+  float: left;
+}
+
+%flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// Vertical align
+%vertical-align {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+// Clearfix
+%clearfix {
+  *zoom: 1;
+  &:before, &:after {
+      content: " ";
+      display: table;
+  }
+  &:after {
+      clear: both;
+  }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip: rect(0,0,0,0);
+  border: 0;
+}
+
+/*#Deprecated?*/
+// Visually hide an element
+%visuallyhidden {
+  margin: -1px;
+  padding: 0;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip: rect(0, 0, 0, 0);
+  position: absolute;
+}
+
+// Overlay
+// Use in a pseudo element
+%overlay {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+}
+
+// Cover
+// Makes videos or images work like background-size: cover;
+// as long as the parent is relative and has overflow: hidden
+%cover {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  transform: translate(-50%, -50%);
+}
+
+/**
+ * Text styles
+ * ----------------------------------------------------------------------------
+ *
+ * Utility classes for affecting text display
+ */
+
+dt, dd, 
+h1, h2, h3, h4, h5, h6, 
+p, li, blockquote, cite, time, td {
+  &.text-left {
+    text-align: left;
+  }
+
+  &.text-center {
+    text-align: center;
+  }
+  
+  &.text-right {
+    text-align: right;
+  }
+
+  &.text-uppercase {
+    text-transform: uppercase;
+  }
+  
+  &.text-lowercase {
+    text-transform: lowercase;
+  }
+  
+  &.text-default {
+    text-transform: initial;
+  }
+}
+
+div, figure, figcaption, 
+ol, ul, 
+table, tr, 
+section, aside, article, header, footer, nav {
+  &.text-left {
+    h1, h2, h3, h4, h5, h6, 
+    a, ul, ol, button, p, li, blockquote, cite, time, td {
+      margin-left: 0;
+      text-align: left;
+    }
+    
+    ul {
+      margin-right: auto;
+    }
+  }
+    
+  &.text-center {
+    h1, h2, h3, h4, h5, h6, 
+    a, ul, ol, button, p, li, blockquote, cite, time, td {
+      text-align: center;
+    }
+  }
+    
+  &.text-right {
+    h1, h2, h3, h4, h5, h6, 
+    a, ul, ol, button, p, li, blockquote, cite, time, td {
+      margin-right: 0;
+      text-align: right;
+    }
+    
+    ul {
+      margin-left: auto;
+    }
+  }
+
+  &.text-uppercase {
+    h1, h2, h3, h4, h5, h6, 
+    a, ul, ol, button, p, li, blockquote, cite, time, td {
+      text-transform: uppercase;
+    }
+  }
+    
+  &.text-lowercase {
+    h1, h2, h3, h4, h5, h6, 
+    a, ul, ol, button, p, li, blockquote, cite, time, td {
+      text-transform: lowercase;
+    }
+  }
+    
+  &.text-default {
+    h1, h2, h3, h4, h5, h6, 
+    a, ul, ol, button, p, li, blockquote, cite, time, td {
+      text-transform: initial;
+    }
+  }
+}
+
+//theme specific colors
+a, address, dt, dd, h1, h2, h3, h4, h5, h6, li, p, span, small, td, th, time, ul,
+.thumbnail h3, .thumbnail h4, .thumbnail h5 {
+  &.black {
+    color: $black;
+  }
+  &.coal {
+    color: $coal;
+  }
+  &.battleship {
+    color: $battleship;
+  }
+  &.ebony {
+    color: $ebony;
+  }
+  &.smoke {
+    color: $smoke;
+  }
+  &.grey {
+    color: $grey;
+  }
+  &.gold {
+    color: $gold;
+  }
+  &.aluminum {
+    color: $aluminum;
+  }
+  &.silver {
+    color: $silver;
+  }
+  &.primary {
+    color: var(--primary-color);
+  }
+  &.secondary {
+    color: var(--secondary-color);
+  }
+  &.lavender {
+    color: $lavender;
+  }
+  &.teal {
+    color: $teal;
+  }
+  &.royal {
+    color: $royal;
+  }
+  &.seafoam {
+    color: $seafoam;
+  }
+  &.forest {
+    color: $forest;
+  }
+  &.ivory {
+    color: $ivory;
+  }
+  &.white {
+    color: $white;
+  }
+}
+
+body, details, legend, 
+aside, article, main, div, details, header, footer, 
+section, nav, main, menu, code, hr {
+  &.black {
+    background-color: $black;
+    &.translucent {
+      background-color: rgba($black, 0.8);
+    }
+  }
+
+  &.dark, 
+  &.black, 
+  &.coal, 
+  &.secondary, 
+  &.smoke,
+  &.teal {
+    color: $white;
+
+    p, li, time,
+    h1, h2, h3, h4, h5, h6 {
+      color: $white;
+    }
+  }
+
+  &.white,
+  &.ivory,
+  &.primary, 
+  &.seafoam {
+    color: var(--text-color);
+
+    p, li, time,
+    h1, h2, h3, h4, h5, h6 {
+      color: var(--text-color);
+    }
+  }
+
+  &.primary {
+    background-color: var(--primary-color);
+  }
+
+  &.secondary {
+    background-color: var(--secondary-color);
+  }
+
+  &.tertiary {
+    background-color: var(--tertiary-color);
+  }
+
+  &.coal {
+    background-color: $coal;
+    &.translucent {
+      background-color: rgba($coal, 0.8);
+    }
+  }
+
+  &.dark {
+    background-color: var(--primary-bg-color--dark);
+    &.translucent {
+      background-color: rgba($primary-bg-color--dark, 0.8);
+    }
+  }
+
+  &.battleship {
+    background-color: $battleship;
+    &.translucent {
+      background-color: rgba($battleship, 0.8);
+    }
+  }
+
+  &.ebony {
+    background-color: $ebony;
+    &.translucent {
+      background-color: rgba($ebony, 0.8);
+    }
+  }
+
+  &.smoke {
+    background-color: $smoke;
+    &.translucent {
+      background-color: rgba($smoke, 0.8);
+    }
+  }
+
+  &.grey {
+    background-color: $grey;
+    &.translucent {
+      background-color: rgba($grey, 0.8);
+    }
+  }
+
+  &.gold {
+    background-color: $gold;
+    &.translucent {
+      background-color: rgba($gold, 0.8);
+    }
+  }
+  
+  &.goldenrod {
+    background-color: $goldenrod;
+    &.translucent {
+      background-color: rgba($goldenrod, 0.8);
+    }
+  }
+
+  &.teal {
+    background-color: $teal;
+    &.translucent {
+      background-color: rgba($teal, 0.8);
+    }
+  }
+
+  &.seafoam {
+    background-color: $seafoam;
+    &.translucent {
+      background-color: rgba($seafoam, 0.8);
+    }
+  }
+
+  &.forest {
+    background-color: $forest;
+    &.translucent {
+      background-color: rgba($forest, 0.8);
+    }
+  }
+
+  &.aluminum {
+    background-color: $aluminum;
+    &.translucent {
+      background-color: rgba($aluminum, 0.8);
+    }
+  }
+  &.silver {
+    background-color: $silver;
+    &.translucent {
+      background-color: rgba($silver, 0.8);
+    }
+  }
+  &.ivory {
+    background-color: $ivory;
+    &.translucent {
+      background-color: rgba($ivory, 0.8);
+    }
+  }
+  &.white {
+    background-color: $white;
+    &.translucent {
+      background-color: rgba($white, 0.8);
+    }
+  }
+  
+  &.periwinkle {
+    background-color: $periwinkle;
+    &.translucent {
+      background-color: rgba($periwinkle, 0.8);
+    }
+  }
+  
+  &.purple {
+    background-color: $purple;
+    &.translucent {
+      background-color: rgba($purple, 0.8);
+    }
+  }
+}
+
+[data-clickthrough] {
+  cursor: pointer;
+}
+
+[data-backgrounder] {
+  background-position: center;
+  background-size: cover;
+
+  .feature {
+    max-height: 66.66667vh;
+    overflow: hidden;
+
+    img {
+      opacity: 0;
+      display: inline;
+    }
+
+  }
+
+}
+
+.container {
+  display: flex;
+  max-width: 1920px;
+  flex-wrap: wrap;
+  padding: var(--padding-container);
+
+  .dark .shadowed &,
+  .dark.shadowed & {
+    box-shadow: 0 -20px 20px -20px $black;
+  }
+}
+
+.wrapper {
+  display: flex;
+}

@@ -1,0 +1,379 @@
+%button {
+    -webkit-appearance: none;
+    appearance: none;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 8px;
+    border: solid 0 $black;
+    margin: auto 0;
+    padding: var(--padding-xs) var(--padding-sm);
+    border: none;
+    border-radius: 0.25rem;
+    color: var(--button-color);
+    text-decoration: none;
+    text-align: center;
+    letter-spacing: 0.0625rem;
+    font-weight: var(--text-xbold);
+    font-size: rem-calc(14);
+    text-transform: uppercase;
+    line-height: 1;
+    outline: none;
+    box-shadow: none;
+    background-color: var(--primary-color);
+  
+    @include screen-md-up {
+        font-size: rem-calc(16);
+        line-height: line-calc(28, 16);
+  
+        &:hover {
+            cursor: pointer;
+        }
+  
+        &:hover,
+        &:focus,
+        &:active {
+            background-color: darken($primary-color, 10%);
+        }
+    }
+}
+  
+%button--primary {
+    background-color: $primary-color;
+  
+  
+    @include screen-md-up {
+        &:hover, &:active, &:focus {
+            color: $smoke;
+            background-color: $primary-color;
+        }
+    }
+}
+
+%button--secondary {
+    color: var(--text-color--dark);
+    background-color: var(--secondary-color);
+  
+    @include screen-md-up {
+        &:hover, &:active, &:focus {
+            color: var(--text-color);
+            background-color: var(--primary-color);
+        }
+      }
+}
+  
+%button--gold {
+    background-color: $gold;
+  
+    @include screen-md-up {
+        &:hover, &:active, &:focus {
+            color: $smoke;
+            background-color: $ivory;
+        }
+    }
+}
+  
+%button--goldenrod {
+    background-color: $goldenrod;
+  
+  
+    @include screen-md-up {
+        &:hover, &:active, &:focus {
+            background-color: $gold;
+        }
+    }
+}
+  
+%button--chocolate {
+    border-color: $chocolate;
+    background-color: $chocolate;
+  
+    @include screen-md-up {
+        &:hover, &:active, &:focus {
+            background-color: lighten($chocolate,0.33);
+        }
+      }
+}
+  
+%button--chocolate-drk {
+    background-color: $chocolate-drk;
+  
+    @include screen-md-up {
+        &:hover, &:active, &:focus {
+            background-color: lighten($chocolate-drk,0.33);
+        }
+    }
+}
+  
+%button--teal {
+    color: $purple;
+    background-color: $teal;
+  
+    @include screen-md-up {
+        &:hover, &:active, &:focus {
+            color: $teal;
+            background-color: $purple;
+        }
+      }
+}
+  
+%button--melon {
+    color: $purple;
+    background-color: $melon;
+  
+    @include screen-md-up {
+        &:hover, &:active, &:focus {
+            color: $melon;
+            background-color: $purple;
+        }
+      }
+}
+  
+%button--white {
+    color: $black;
+    background-color: $white;
+  
+    @include screen-md-up {
+        &:hover, &:active, &:focus {
+            color: $white;
+            background-color: $aluminum;
+        }
+      }
+}
+  
+%button--lavender {
+    color: $smoke;
+    background-color: $lavender;
+  
+    @include screen-md-up {
+        &:hover, &:active, &:focus {
+            background-color: $white;
+        }
+    }
+}
+  
+%button--royal {
+    color: $white;
+    background-color: $royal;
+  
+    @include screen-md-up {
+        &:hover, &:active, &:focus {
+            background-color: lighten($royal, 20%);
+        }
+    }
+}
+  
+%button--periwinkle {
+    color: $periwinkle;
+    background-color: $white;
+  
+    @include screen-md-up {
+        &:hover, &:active, &:focus {
+            color: $white;
+            background-color: $teal;
+        }
+    }
+}
+  
+%button--aluminum {
+    color: $grey;
+    background-color: $white;
+  
+    @include screen-md-up {
+        &:hover, &:active, &:focus {
+            color: $grey;
+            background-color: $white;
+        }
+    }
+}
+  
+%button--silver {
+    color: $grey;
+    background-color: $silver;
+  
+    @include screen-md-up {
+        &:hover, &:active, &:focus {
+            color: $grey;
+            background-color: $white;
+        }
+    }
+}
+  
+%button--grey {
+    background-color: $grey;
+  
+    @include screen-md-up {
+        &:hover, &:active, &:focus {
+            color: $smoke;
+            background-color: $ivory;
+        }
+      }
+}
+  
+%button--smoke {
+    background-color: $smoke;
+  
+    @include screen-md-up {
+        &:hover, &:active, &:focus {
+              color: $smoke;
+             background-color: $ivory;
+        }
+    }
+}
+  
+%button--ebony {
+    background-color: $ebony;
+  
+    @include screen-md-up {
+        &:hover, &:active, &:focus {
+            color: $ebony;
+            background-color: $ivory;
+        }
+    }
+}
+  
+%button--black {
+    background-color: $black;
+  
+    @include screen-md-up {
+        &:hover, &:active, &:focus {
+              background-color: $grey;
+        }
+    }
+}
+
+%h0 {
+    font-size: rem-calc(47);
+    font-weight: $text-black;
+    line-height: 1.25;
+  
+    @include screen-sm-up {
+      font-size: rem-calc(90);
+      line-height: 1.5;
+    }  
+}
+  
+%h1 {
+    font-size: rem-calc(39);
+    font-weight: $text-black;
+  
+    @include screen-sm-up {
+      font-size: rem-calc(52);
+    }  
+}
+  
+%h2 {
+    font-size: rem-calc(28);
+    font-weight: $text-bold;
+    line-height: 1.25;
+  
+    @include screen-sm-up {
+      font-size: rem-calc(32);
+    }
+}
+
+%h3 {
+    font-size: rem-calc(20);
+    font-weight: $text-med;
+    line-height: 1.25;
+  
+    @include screen-sm-up {
+      font-size: rem-calc(28);
+    }  
+}
+
+
+%h4 {
+    font-size: 1.125rem;
+    font-weight: $text-black;
+    line-height: 1.125;
+  
+    @include screen-sm-up {
+      font-size: rem-calc(22);
+    }
+}
+
+%h5 {
+    font-size: 1rem;
+    font-weight: $text-med;
+    line-height: 1.25;
+  
+    @include screen-sm-up {
+      font-size: rem-calc(20);
+    }
+}
+  
+%h6 {
+    font-size: 1rem;
+    font-weight: $text-bold;
+  
+    @include screen-sm-up {
+      font-size: rem-calc(22);
+    }
+}
+  
+%input {
+  appearance: none;
+  -webkit-appearance: none;
+  display: inline-flex;
+  width: 100%;
+  padding: 0.75rem;
+  border: 0.0625rem solid var(--border-color);
+  border-radius: rem-calc(2);
+  font-size: rem-calc(15);
+  font-weight: var(--text-book);
+  color: var(--text-color);
+  line-height: 1.125;
+  background-color: $white;
+  outline: none;
+
+
+  @include screen-lg-up {
+
+    &:hover {
+      cursor: pointer;
+    }
+
+  }
+  @include placeholder-text {
+		font-weight: $text-book;
+		color: $battleship;
+	}
+}
+
+%large {
+    font-size: rem-calc(13);
+  
+    @include screen-sm-up {
+      font-size: 1.125rem;
+    }  
+}
+  
+%p {
+    font-family: $font-family-default;
+    font-size: rem-calc(12);
+    font-weight: $text-book;
+  
+    @include screen-sm-up {
+      font-size: 1rem;
+    }
+}
+  
+%small {
+    font-size: rem-calc(10.5);
+  
+    @include screen-sm-up {
+      font-size: 0.75rem;
+    }
+}
+  
+%supertitle {
+    font-size: rem-calc(13);
+    text-transform: uppercase;
+    font-weight: $text-book;
+  
+    @include screen-sm-up {
+      font-size: 1.125rem;
+    }
+}

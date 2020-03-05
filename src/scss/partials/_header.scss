@@ -1,0 +1,33 @@
+body > header {
+  position: fixed;
+  z-index: 5;
+  top: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  align-content: flex-start;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  padding: var(--padding-sm);
+  border-bottom: solid 0.0625rem var(--border-color);
+  background-color: var(--primary-bg-color);
+
+  .dark &,
+  &.dark {
+      border-bottom-color: var(--border-color--dark);
+      background-color: var(--primary-bg-color--dark);
+  }
+
+  figure {
+    margin: unset;
+  }
+
+  @include screen-sm {
+    flex-direction: column;
+
+    figure {
+      margin-bottom: var(--padding-sm);
+    }
+  }
+}

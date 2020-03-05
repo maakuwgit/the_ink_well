@@ -1,0 +1,33 @@
+body > footer {
+  display: flex;
+  align-content: flex-start;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: var(--padding-sm);
+  border-top: solid 0.0625rem var(--border-color);
+  background-color: var(--primary-bg-color);
+
+  .dark &,
+  &.dark {
+      border-bottom-color: var(--border-color--dark);
+      background-color: var(--primary-bg-color--dark);
+  }
+
+  figure {
+    margin: auto auto var(--padding-sm) auto;
+
+    &.logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-width: 5rem;
+      min-height: 1.3125rem;
+      padding: calc(var(--padding-xs)/2);
+    }
+
+    figcaption a {
+      text-decoration: none;
+    }
+  }
+}

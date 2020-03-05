@@ -1,0 +1,82 @@
+/*
+* Global or General Animations
+*/
+
+//Animate every attribute at 'normal' speed
+a,
+[data-backgrounder],
+.slide .button {
+  transition: all 200ms ease-in-out;
+  &:hover {
+    transition: all 200ms ease-in-out;
+  }
+}
+
+//Animate every attribute at 'fast' speed w/hover at 'hyper' speed
+.button,
+button,
+.button svg,
+input[type="submit"],
+summary:before {
+  transition: all 150ms ease-out;
+  &:hover {
+    transition: all 50ms ease-out;
+  }
+}
+/* General */
+
+//Buttons
+button,
+input[type="submit"], 
+.button {
+  svg {
+    transform: scale(0.8);
+  }
+  span,
+  svg {
+    opacity: 0;
+  }
+}
+
+/* Components */
+
+/* Vue */
+.slide-fade-enter-active, 
+.slide-fade-leave-active {
+  transition-property: all;
+}
+
+.fade-enter-active, 
+.fade-leave-active {
+  transition-property: opacity;
+}
+
+.slide-fade-enter-active, 
+.slide-fade-leave-active {
+  transition-duration: .3s;
+}
+
+.fade-enter-active, 
+.fade-leave-active {
+  transition-duration: .5s;
+}
+
+.fade-enter, 
+.fade-leave-to,
+.slide-fade-enter, 
+.slide-fade-leave-to {
+  opacity: 0;
+}
+
+.slide-fade-enter-active {
+  transition-timing-function: ease-out;
+}
+
+.slide-fade-leave-active {
+  transition-timing-function: cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+
+.slide-fade-enter, 
+.slide-fade-leave-to {
+  transform: translateY(0.625rem);
+}

@@ -1,0 +1,27 @@
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 3rem;
+    min-height: 1.3125rem;
+    padding: calc(var(--padding-xs)/2);
+    font-family: $font-family-quote;
+    line-height: 1.125;
+    text-align: center;
+    color: var(--text-color);
+    background-color: var(--primary-color);
+
+    a, 
+    figcaption {
+        color: currentColor;
+        text-decoration: none;
+    }
+
+    @include screen-sm-up {
+        &:focus,
+        &:hover {
+            cursor: pointer;
+            background-color: lighten($primary-color, 20%);
+        }
+    }
+}

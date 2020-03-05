@@ -1,0 +1,85 @@
+[data-component="cards"] {
+    dl {
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: calc(var(--padding-sm)*-1);
+        margin-right: calc(var(--padding-sm)*-1);
+
+        dt, dd {
+            width: calc(33.3333334% - var(--padding-sm)*2);
+            flex: 0 0.33 auto;
+            padding: var(--padding-sm);
+            margin-right: var(--padding-sm);
+            margin-left: var(--padding-sm);
+        }
+
+        dt {
+            color: var(--text-color);
+            border-top-left-radius: var(--border-radius--inner);
+            border-top-right-radius: var(--border-radius--inner);
+            background-color: var(--tertiary-color);
+
+            &:first-of-type {
+                order: 1;
+            }
+            &:nth-of-type(2) {
+                order: 2;
+            }
+            &:nth-of-type(3) {
+                order: 3;
+            }
+            &:nth-of-type(4) {
+                order: 7;
+            }
+            &:nth-of-type(5) {
+                order: 8;
+            }
+            &:nth-of-type(6) {
+                order: 9;
+            }
+        }
+
+        dd {
+            border-bottom-left-radius: var(--border-radius--inner);
+            border-bottom-right-radius: var(--border-radius--inner);
+            margin-bottom: calc(var(--padding-sm) * 2);
+            background-color: $white;
+            
+            .dark & {
+                background-color: lighten($primary-bg-color--dark, 10%);
+            }
+            
+            .button,
+            button {
+                @extend %button--secondary;
+            }
+
+            p {
+                margin-top: 0;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+
+            &:first-of-type {
+                order: 4;
+            }
+            &:nth-of-type(2) {
+                order: 5;
+            }
+            &:nth-of-type(3) {
+                order: 6;
+            }
+            &:nth-of-type(4) {
+                order: 11;
+            }
+            &:nth-of-type(5) {
+                order: 12;
+            }
+            &:nth-of-type(6) {
+                order: 13;
+            }
+        }
+    }
+}

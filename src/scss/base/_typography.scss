@@ -1,0 +1,157 @@
+/* Imports */
+@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap&Open+Sans&display=swap');
+
+/* Families */
+h1,.h1, 
+h2, .h2, 
+h3,.h3, 
+h4, .h4 {
+  font-family: $font-family-heading;
+}
+
+body {
+  font-family: $font-family-default;
+}
+
+/* Overrides (alphabetically) */
+a {
+  text-decoration: $link-decoration;
+  &:hover {
+    text-decoration: $link-hover-decoration;
+  }
+}
+
+address {
+  font-style: normal;
+  font-size: 0.75rem;
+  line-height: line-calc(28, 14);
+
+  @include screen-sm-up {
+    font-size: 1rem;
+    line-height: line-calc(32, 16);
+  }
+}
+
+blockquote {
+  font-size: 1.3125rem;
+  font-weight: var(--text-book);
+  line-height: line-calc(26,22);
+
+  p {
+    font-weight: inherit;
+    font-size: inherit;
+    line-height: inherit;
+  }
+
+  cite {
+    font-size: 1rem;
+    font-weight: var(--text-black);
+    font-style: normal;
+  }
+
+}
+
+html {
+  font-size: 100%;
+  font-weight: var(--text-book);
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  @include screen-xl-up {
+    font-size: 125%;
+  }
+}
+
+body {
+  font-size: rem-calc(16);
+  line-height: 1.6875;
+}
+
+.h0 {
+  @extend %h0;
+}
+
+h1, .h1 {
+  @extend %h1
+}
+
+h2, .h2 {
+  @extend %h2;
+}
+
+h3, .h3 {
+  @extend %h3;
+}
+
+h4, .h4 {
+  @extend %h4;
+}
+
+h5, .h5 {
+  @extend %h5;
+}
+
+h6, .h6 {
+  @extend %h6;
+}
+
+label {
+  font-size: rem-calc(12);
+  font-weight: var(--text-book);
+
+  @include screen-sm-up {
+    font-size: rem-calc(14);
+  }
+}
+
+menu {
+  a {
+    font-size: rem-calc(12);
+    font-weight: var(--text-bold);
+    text-decoration: none;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+
+  @include screen-sm-up {
+    a {
+      font-size: rem-calc(14);
+    }
+  }
+}
+
+p, .p, li, td, dd, summary, article {
+  @extend %p;
+}
+
+th, dt {
+  @extend %h4;
+}
+
+small, p.small, li.small, td.small, dd.small, dt.small, span.small {
+  @extend %small;
+}
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+}
+
+textarea {
+  font-weight: var(--text-med);
+}
+
+ul:not(.nav) {
+  li:before {
+    font-size: rem-calc(10);
+  }
+
+  @include screen-lg-up {
+    li:before {
+      font-size: rem-calc(16);
+    }
+  }
+}

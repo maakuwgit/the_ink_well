@@ -1,0 +1,76 @@
+.button,
+input[type="submit"],
+button {
+  @extend %button;
+
+  &.muted {
+    color: $silver;
+    svg {
+      fill: $silver;
+    }
+  }
+
+  .gold {
+    @extend %button--gold;
+  }
+
+  .goldenrod {
+    @extend %button--goldenrod;
+  }
+
+  .chocolate-drk {
+    @extend %button--chocolate-drk;
+  }
+
+  .chocolate {
+    @extend %button--chocolate;
+  }
+
+  &.teal{
+    @extend %button--teal;
+  }
+
+  &.melon {
+    @extend %button--melon;
+  }
+
+  &.white {
+    @extend %button--white;
+  }
+
+  &.aluminum {
+    @extend %button--aluminum;
+  }
+
+  &.grey {
+    @extend %button--grey;
+  }
+
+  &.silver {
+    @extend %button--silver;
+  }
+
+  &.smoke {
+    @extend %button--smoke;
+  }
+
+  &.ebony {
+    @extend %button--ebony;
+  }
+
+  &.royal {
+    @extend %button--royal;
+  }
+
+  &.lavender {
+    @extend %button--lavender;
+  }
+
+  &.primary {
+    @extend %button--primary;
+  }
+
+  &.secondary {
+    @extend %button--secondary;
+  }
+}
