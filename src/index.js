@@ -2,11 +2,6 @@ import './scss/global.scss';
 
 const logoTxt = '真〜久W';
 
-function makeBackground(obj) {
-    if(obj.src)
-        return 'background-image:url('+obj.src+')';
-}
-
 Vue.component('logo', {
     props: {
         'id':Number,
@@ -132,23 +127,25 @@ Vue.component('callout', {
         'id':String,
         'title':String,
         'content':String,
-        'src':String,
+        'bSrc':String,
         'label':String,
         'href':String,
         'target':String
     },
     template: '<article data-component="callout" :id="id" class="container" :style="makeBackground">' + 
-                '<img :src="src" v-if="src" style="display:none;">' + 
+                '<img :src="bSrc" v-if="bSrc" style="display:none;">' + 
                 '<h2>{{title}}</h2>' +
                 '<p>{{content}}</p>' +
                 '<nav v-if="href">' +
                     '<a class="button secondary" :href="href" :target="target">{{label}}</a>' +
                 '</nav>' + 
              '</article>',
-    computed: {
+    methods: {
         makeBackground: function() {
-            if(this.src)
-                return 'background-image:url('+this.src+')';
+            if(this.bSrc) {
+                this.$emit('cSrc', this.bSrc);
+                return 'background-image:url('+this.bSrc+')';
+            }
         }
     }
 });
@@ -254,6 +251,7 @@ var main = new Vue({
     el: 'main',
     data: {
         style: 'dark', 
+        cSrc: false,
         sections : [
         {
             id: 'about_us',
@@ -427,7 +425,7 @@ var main = new Vue({
                             id: 'join_us',
                             title: 'Join Us',
                             content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-                            bgSrc: 'https://via.placeholder.com/1600x600', 
+                            bSrc: 'https://via.placeholder.com/1600x600', 
                             label: 'Learn More',
                             href: '#join_us',
                             target: '_self'
@@ -437,6 +435,15 @@ var main = new Vue({
             ]
         }
         ]
+    }, 
+    computed: {
+        makeBackground: function() {
+            console.log('go!', this.cSrc);
+            //if(this.cSrc) {
+                
+                //return 'background-image:url('+this.bSrc+')';
+            //}
+        }
     }
 })
 
